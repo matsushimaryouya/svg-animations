@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryouya Matsushima Portfolio</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/wave.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Josefin+Slab:wght@100&family=Lora&family=Noto+Serif+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen and ( min-width:769px )" href="./css/pc_style.css">
+	<link rel="stylesheet" type="text/css" media="screen and ( max-width:768px )" href="./css/sp_style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="js/common.js"></script>
+    <script src="./js/wave.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85188/jquery.wavify.js"></script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="#" id="logo">Ryouya Matsushima Portfolio</a>
+        <div class="snsBox">
+            <a href="https://twitter.com/nanaco_1y0u" id="twBtn"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/ryoya.matsushima" id="fbBtn"><i class="fab fa-facebook-square"></i></a>
+        </div>
+        <ul class="menuBox">
+            <li><a href="#firstSec">Skill</a></li>
+            <li><a href="#secondSec">Work</a></li>
+            <li><a href="#thirdSec">Portfolio</a></li>
+            <li><a href="#fourthSec">Contact</a></li>
+        </ul>
+    </div>
+</header>
+<section id="gunnyouchi">
+    <div class="graphy_container">
+    <h3>複利計算 </h3>
+    <!-- ローン入力部分 -->
+    <div class="loan_form_container1">
+               <!-- 年間借地料 -->
+    <div class="loan_form">
+    <div class="form_name"><p>年間借地料</p></div>
+    <div class="forms">
+    <div class="form">
+            <input type="text" class="year_rent" id="compound">
+    </div>
+    <div class="form_unit"><p>円</p></div>
+    </div>
+    </div>
+    <!-- 年利 -->
+    <div class="loan_form">
+    <div class="form_name"><p>年利</p></div>
+    <div class="forms">
+    <div class="form"><input type="text" id="interest" class="interest"></div>
+    <div class="form_unit"><p>%</p></div>
+    </div>
+    </div>
+    <!-- 期間 -->
+    <div class="loan_form">
+    <div class="form_name"><p>期間</p></div>
+    <div class="forms">
+    <div class="form"><input type="text" id="period" class="period"></div>
+    <div class="form_unit"><p>年</p></div>
+    </div>
+    </div>
+    </div> <!-- ローン入力終了 -->
+    
+    <!-- 計算ボタン -->
+    <div class="loan_btn" id="risult_btn1" onclick="clickivent();">
+    <p>計算する</p>
+    </div>
+    
+    
+    <!-- グラフ表示部分 -->
+    <div class="graph_container">
+    <div class="graph">
+    <canvas id="line-chart" height="421" width="1264" style="position:relative; width: 80%; height: 250px; margin: 0 auto;"></canvas>
+    </div>
+                        
+    </div><!-- グラフ表示終了 -->
+    
+    <!-- 計算結果出力部分 -->
+    <div class="graphy_result_container">
+    <div class="loan_form">
+        <!-- 資産合計 -->
+        <div class="form_name"><p>資産合計</p></div>
+        <div class="forms">
+            <div class="form"><p class="last_asset"></p></div>
+            <div class="form_unit"><p>円</p></div>
+        </div>
+    </div>
+    <!-- 初年度借地料 -->
+    <div class="loan_form">
+        <div class="form_name"><p>初年度借地料</p></div>
+        <div class="forms">
+            <div class="form"><p class="first_asset"></p></div>
+            <div class="form_unit"><p>円</p></div>
+        </div>
+    </div>
+    <!-- 収支 -->
+    <div class="loan_form">
+        <div class="form_name"><p>収支</p></div>
+        <div class="forms">
+            <div class="form"><p class="incom"></p></div>
+            <div class="form_unit"><p>円</p></div>
+        </div>
+    </div>
+    </div>
+    </div><!-- 計算結果出力終了 -->
+    <style>
+        /* リセットおまじない--------------------------------- */
+    
+    body, h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd {
+    margin: 0px;
+    padding: 0px;
+    }
+    body {
+    background: #fff;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.4;
+    min-width: 100%;
+    -webkit-text-size-adjust: 100%;
+    }
+    li {
+    list-style: none;
+    }
+    a {
+    outline: none;
+    color: inherit;
+    text-decoration: none;
+    }
+    img {
+    border: 0px;
+    vertical-align: bottom;
+    }
+    /* --------------------------------------------------- */
+    /* WPのレイアウト変更 */
+    body #pl-25{
+    max-width: none;
+    }
+    /* 全体のコンテナ */
+    .graphy_container{
+    background-color: white;
+                     width:60%;
+    height:780px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+            padding:15px;
+                    margin: 0 auto 50px auto;
+    }
+    /* 入力フォームのコンテナ */
+    .loan_form_container1{
+    background-color: white;
+    width:100%;
+    height:200px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    /* 出力画面のコンテナ */
+    .graphy_result_container{
+    background-color: #fff;
+    width:100%;
+    height:200px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    /* グラフのコンテナ */
+    .graph_container{
+    /* background-color: rgb(198, 255, 255); */
+    width:100%;
+    height:240px;
+    }
+    
+    /* フォーム共通 */
+    .loan_form{
+    /* background-color: rgba(0, 255, 0, 0.215); */
+    border-bottom:1px solid black;
+    height:60px;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    }
+    .form_name{
+    /* background-color: yellow; */
+    height:100%;
+    width:40%;
+    text-align:left;
+    display:flex;
+    align-items: flex-end;
+    font-size:20px;
+    }
+    .form_name p{
+    margin-left:5px;
+    }
+    .forms{
+    /* background-color: pink; */
+    height:100%;
+    width:60%;
+    display:flex;
+    }
+    .form{
+    /* background-color: rgb(185, 206, 185); */
+    height:100%;
+    width:85%;
+    display:flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size:30px;
+    }
+    .form_unit{
+    /* background-color: aqua; */
+    height:100%;
+    width:15%;
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    }
+    
+    /* 入力フォーム */
+    input{
+    height:60%;
+    width:100%;
+    font-size:30px;
+    text-align:right;
+    border:none;
+    border-radius: 0%;
+    }
+    
+    /* グラフのコンテンツ */
+    
+    /* 計算ボタン */
+    .loan_btn{
+    background-color: lightgray;
+    width:95%;
+    height:70px;
+    margin: 5px auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:7px;
+    font-size:18px;
+    cursor:pointer;
+    }
+    
+    
+    </style>
+    
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script>
+      
+    // 年間借地料を取得
+    var compound_result = [];
+    function compound(compound){
+    for (var i = 0; i < 1; i++) {
+    compound_result.push(compound);
+    }
+    return compound_result;
+    }
+    
+    // 年利を取得
+    var interest_1 = [];
+    function intere(interest){
+    for (var i = 0; i <= 1; i++) {
+    interest_1.push(interest);
+    }
+    return interest_1;
+    }
+    
+    
+    
+    // 期間の数値を取得し配列に
+    // function period(period) {
+    //   var period_label = [];
+    //   for (var i = 1; i <= period; i++) {
+    //     eval("var year_" + i + "=" + i + ";");
+    //     period_label.push(i);
+    //   }
+    //   return period_label;
+    // }
+    
+    
+    
+    // 複利計算の全体
+    function clickivent(){
+    // 期間の配列を取得
+    var period = document.getElementById("period").value;
+    var period_label = [];
+    for (var i = 1; i <= period; i++) {
+    eval("var year_" + i + "=" + i + ";");
+    period_label.push(i);
+    }
+    console.log(period_label);
+    
+    // 借地料を取得
+    var compound_1 = document.getElementById("compound").value;
+    console.log(compound_1);
+    
+    // 年利を取得
+    var interest_2 = document.getElementById("interest").value;
+    console.log(interest_2);
+    
+    // 複利の計算をする
+    var compound_interest = [];
+    var result = compound_1;
+    for (var i = 1; i <= period; i++) {
+    var result = result * (1 + interest_2 /100);
+    result = Math.floor(result);
+    compound_interest.push(result);
+    }
+    console.log(compound_interest);
+    
+    // グラフ作成のスクリプト
+    var lineChartData = {
+    labels : period_label,
+    datasets : [
+    {
+    label: "私",
+    fillColor : /*"#f2dae8"*/"rgba(242,218,232,0.6)",
+    strokeColor : /*"#dd9cb4"*/"rgba(221,156,180,0.6)",
+    pointColor : /*"#dd9cb4"*/"rgba(221,156,180,0.6)",
+    pointStrokeColor : "#fff",
+    pointHighlightFill : "#fff",
+    pointHighlightStroke : /*"#dd9cb4"*/"rgba(221,156,180,0.6)",
+    data : compound_interest
+    }
+    ]
+    }
+    return [lineChartData, compound_1, compound_interest];
+    }
+    
+    
+    
+    
+    
+    
+    $(function(){
+    $('#risult_btn1').click(function(){
+    var ChartData = clickivent();
+    var lineChartData = ChartData[0];
+                var last_asset = ChartData[2];
+    last_asset = last_asset.slice(-1)[0];
+                var chartData = Math.round(last_asset / 1000 * 0.13) * 1000;
+             console.log(last_asset + "あ");
+    console.log('yes');
+    
+    var ctx = document.getElementById("line-chart").getContext("2d");
+    window.myLine = new Chart(ctx).Line(lineChartData, {
+    responsive: false,
+    // 下記を追加すると線がまっすぐになります
+    bezierCurve: false,
+    // アニメーション停止
+    // animation: false
+    scaleOverride: true,
+    scaleFontSize: 5,
+    scaleStepWidth: chartData,
+    scaleSteps: 10,
+    }
+    );
+    
+    
+    // 資産合計
+    var last_asset = ChartData[2];
+    last_asset = last_asset.slice(-1)[0];
+    console.log(last_asset);
+    var St_last_asset = new String( last_asset );
+    while( St_last_asset != ( St_last_asset = St_last_asset.replace( /(\d)((\d\d\d)+\b)/, '$1,$2' ) ) );
+    $('.last_asset').text(St_last_asset);
+    
+    // 初年度賃借料
+    var first_asset = ChartData[1];
+    var St_first_asset = new String( first_asset );
+    while( St_first_asset != ( St_first_asset = St_first_asset.replace( /(\d)((\d\d\d)+\b)/, '$1,$2' ) ) );
+    $('.first_asset').text(St_first_asset);
+    
+    // // 収支
+    var incom = last_asset - first_asset;
+    var incom = new String( incom );
+    while( incom != ( incom = incom.replace( /(\d)((\d\d\d)+\b)/, '$1,$2' ) ) );
+    $('.incom').text(incom);
+    
+    });
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    
+    
+    </div><!-- 複利計算全ての終了タグ -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- ここから経費計算 -->
+    <div class="keihi_container">
+    <h3>経費計算</h3>
+    <!-- ローン入力部分 -->
+    <div class="keihi_form_container">
+    
+    <!-- 仲介手数料 -->
+    <div class="loan_form">
+    <div class="form_name"><p>仲介手数料</p></div>
+    <div class="forms">
+    <div class="form"><input type="number" class="compounding_fee"></div>
+    <div class="form_unit"><p>円</p></div>
+    </div>
+    </div>
+    <!-- 登記費用 -->
+    <div class="loan_form">
+    <div class="form_name"><p>登記費用</p></div>
+    <div class="forms">
+    <div class="form"><input type="number" class="registration"></div>
+    <div class="form_unit"><p>円</p></div>
+    </div>
+    </div>
+    <!-- 契約印紙 -->
+    <div class="loan_form">
+    <div class="form_name"><p>契約印紙</p></div>
+    <div class="forms">
+    <div class="form"><input type="number" class="stamp"></div>
+    <div class="form_unit"><p>円</p></div>
+    </div>
+    </div>
+    <!-- 固定資産税 -->
+    <div class="loan_form w">
+    <div class="form_name w"><p>固定資産税</p></div>
+    <div class="forms w">
+    <div class="form w"><input type="number" class="property_tax"></div>
+    <div class="form_unit w"><p>円</p></div>
+    </div>
+    </div>
+    <!-- その他 -->
+    <div class="loan_form w">
+    <div class="form_name w"><p>その他</p></div>
+    <div class="forms w">
+    <div class="form w"><input type="number" class="other"></div>
+    <div class="form_unit w"><p>円</p></div>
+    </div>
+    </div>
+    </div> <!-- ローン入力終了 -->
+    
+    <!-- 計算ボタン -->
+    <div class="loan_btn2">
+    <p>計算する</p>
+    </div>
+    
+    <!-- 計算結果出力部分 -->
+    <div class="keihi_result_container">
+    <!-- 諸経費合計 -->
+    <div class="loan_form">
+        <div class="form_name"><p>諸経費合計</p></div>
+        <div class="forms">
+            <div class="form"><p class="total"></p></div>
+            <div class="form_unit"><p>円</p></div>
+        </div>
+    </div>
+    
+    </div><!-- 計算結果出力終了 -->
+    
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <style>
+    /* リセットおまじない--------------------------------- */
+    
+    body, h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd {
+    margin: 0px;
+    padding: 0px;
+    }
+    body {
+    background: #fff;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.4;
+    min-width: 100%;
+    -webkit-text-size-adjust: 100%;
+    }
+    li {
+    list-style: none;
+    }
+    a {
+    outline: none;
+    color: inherit;
+    text-decoration: none;
+    }
+    img {
+    border: 0px;
+    vertical-align: bottom;
+    }
+    /* --------------------------------------------------- */
+    /* WPのレイアウト変更 */
+    body #pl-25{
+    max-width: none;
+    }
+    /* 全体のコンテナ */
+    .keihi_container{
+    background-color: white;
+    height:512px;
+    width:60%;
+    margin:0 auto 50px auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom:50px;
+    padding:15px;
+    }
+    /* 入力フォームのコンテナ */
+    .keihi_form_container{
+    /* background-color: rgb(228, 228, 228); */
+    width:100%;
+    height:335px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    /* 出力画面のコンテナ */
+    .keihi_result_container{
+    background-color: #fff;
+    width:100%;
+    height:67px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    
+    /* フォーム共通 */
+    .loan_form{
+    /* background-color: rgba(0, 255, 0, 0.215); */
+    border-bottom:1px solid black;
+    height:60px;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    }
+    .form_name{
+    /* background-color: yellow; */
+    height:100%;
+    width:40%;
+    text-align:left;
+    display:flex;
+    align-items: flex-end;
+    font-size:20px;
+    }
+    .form_name p{
+    margin-left:5px;
+    }
+    .forms{
+    /* background-color: pink; */
+    height:100%;
+    width:60%;
+    display:flex;
+    }
+    .form{
+    /* background-color: green; */
+    height:100%;
+    width:85%;
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    font-size:30px;
+    
+    }
+    .form_unit{
+    /* background-color: aqua; */
+    height:100%;
+    width:15%;
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    }
+    
+    /* 入力フォーム */
+    input{
+    height:60%;
+    width:100%;
+    font-size:30px;
+    text-align:right;
+    border:none;
+    border-radius: 0%;
+    }
+    
+    body .w{
+    background-color: #fff;
+    }
+    
+    /* 計算ボタン */
+    .loan_btn2{
+    background-color: lightgray;
+    width:95%;
+    height:70px;
+    margin:5px auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:7px;
+    font-size:18px;
+    }
+    
+    /* 出力フォーム */
+    </style>
+    <script>
+    $(function(){
+    // 各要素を取得
+    $('.loan_btn2').on('click',function(){
+    // 年間借地料を取得
+    var compounding_fee = parseInt($('.compounding_fee').val());
+    console.log(compounding_fee);
+    // 倍率を取得
+    var registration = parseInt($('.registration').val());
+    console.log(registration);
+    // 印紙
+    var stamp = parseInt($('.stamp').val());
+    console.log(stamp);
+    // 固定資産税
+    var property_tax = parseInt($('.property_tax').val());
+    console.log(property_tax);
+    // 印紙
+    var other = parseInt($('.other').val());
+    console.log(other);
+    
+    
+    
+    
+    // 諸経費の計算
+    var total = compounding_fee + registration + stamp + property_tax + other;
+    if(total >= 0){
+    total = new String( total );
+    while( total != ( total = total.replace( /(\d)((\d\d\d)+\b)/, '$1,$2' ) ) );
+    $('.total').text(total);
+    $('.total').css('color','black');
+    }else{
+    $('.total').text('入力が間違っています');
+    $('.total').css('color','red');
+    $('.total').css('font-size','14px');
+    }
+    
+    });
+    
+    
+    });
+    
+    </script>
+    
+    
+    </div><!-- 複利計算全ての終了タグ -->
+    
+    
+    
+    <!-- ここからローン計算 -->
+    <div class="loan_container">
+    <h3>ローン計算 </h3>
+    <!-- ローン入力部分 -->
+    <div class="loan_form_container">
+    
+    <!-- 年利 -->
+    <div class="loan_form">
+    <div class="form_name"><p>年間借地料</p></div>
+    <div class="forms">
+    <div class="form"><input type="number" class="lease_fee"></div>
+    <div class="form_unit"><p>円</p></div>
+    </div>
+    </div>
+    <!-- 期間 -->
+    <div class="loan_form w">
+    <div class="form_name w"><p>倍率</p></div>
+    <div class="forms w">
+    <div class="form w"><input type="number" class="maginification"></div>
+    <div class="form_unit w"><p>倍</p></div>
+    </div>
+    </div>
+    <!-- 銀行評価倍率 -->
+    <div class="loan_form w">
+    <div class="form_name w"><p>銀行評価倍率</p></div>
+    <div class="forms w">
+    <div class="form w"><input type="number" class="evaluation"></div>
+    <div class="form_unit w"><p>倍</p></div>
+    </div>
+    </div>
+    </div> <!-- ローン入力終了 -->
+    
+    <!-- 計算ボタン -->
+    <div class="loan_btn3">
+    <p>計算する</p>
+    </div>
+    
+    <!-- 計算結果出力部分 -->
+    <div class="result_container">
+    <!-- 販売価格 -->
+    <div class="loan_form">
+        <div class="form_name"><p>販売価格</p></div>
+        <div class="forms">
+            <div class="form"><p class="selling_price"></p></div>
+            <div class="form_unit"><p>円</p></div>
+        </div>
+    </div>
+    <!-- 銀行評価額 -->
+    <div class="loan_form">
+        <div class="form_name"><p>銀行評価額</p></div>
+        <div class="forms">
+            <div class="form"><p class="bunk_price"></p></div>
+            <div class="form_unit"><p>円</p></div>
+        </div>
+    </div>
+    <!-- あなたの手出し -->
+    <div class="loan_form">
+        <div class="form_name"><p>あなたの手出し</p></div>
+        <div class="forms">
+            <div class="form"><p class="your_cue"></p></div>
+            <div class="form_unit"><p>円</p></div>
+        </div>
+    </div>
+    <!-- 利回り -->
+    <div class="loan_form">
+        <div class="form_name"><p>利回り</p></div>
+        <div class="forms">
+            <div class="form"><p class="yield"></p></div>
+            <div class="form_unit"><p>%</p></div>
+        </div>
+    </div>
+    
+    </div><!-- 計算結果出力終了 -->
+    
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script>
+    $(function(){
+    // 借地料を取得
+    $('.loan_btn3').on('click',function(){
+    // 年間借地料を取得
+    var lease_fee = $('.lease_fee').val();
+    console.log(lease_fee);
+    // 倍率を取得
+    var maginification = $('.maginification').val();
+    console.log(maginification);
+    // 銀行評価倍率
+    var evaluation = $('.evaluation').val();
+    console.log(evaluation);
+    
+    // 販売価格の計算
+    var selling_price = lease_fee * maginification;
+    var St_selling_price = new String( selling_price );
+    while( St_selling_price != ( St_selling_price = St_selling_price.replace( /(\d)((\d\d\d)+\b)/, '$1,$2' ) ) );
+    $('.selling_price').text(St_selling_price);
+    // 銀行評価額の計算
+    var bunk_price = lease_fee * evaluation;
+    var St_bunk_price = new String( bunk_price );
+    while( St_bunk_price != ( St_bunk_price = St_bunk_price.replace( /(\d)((\d\d\d)+\b)/, '$1,$2' ) ) );
+    $('.bunk_price').text(St_bunk_price);
+    
+    // あなたの手出しの計算
+    var your_cue = selling_price - bunk_price;
+    var St_your_cue = new String( your_cue );
+    while( St_your_cue != ( St_your_cue = St_your_cue.replace( /(\d)((\d\d\d)+\b)/, '$1,$2' ) ) );
+    $('.your_cue').text(St_your_cue);
+    
+    // 利回りの計算
+    var your_yield = lease_fee / selling_price * 100;
+    your_yield = Math.floor(your_yield*100)/100
+    $('.yield').text(your_yield);
+    
+    
+    });
+    
+    
+    });
+    
+    </script>
+    <style>
+    /* リセットおまじない--------------------------------- */
+    
+    body, h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd {
+    margin: 0px;
+    padding: 0px;
+    }
+    body {
+    background: #fff;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.4;
+    min-width: 100%;
+    -webkit-text-size-adjust: 100%;
+    }
+    li {
+    list-style: none;
+    }
+    a {
+    outline: none;
+    color: inherit;
+    text-decoration: none;
+    }
+    img {
+    border: 0px;
+    vertical-align: bottom;
+    }
+    /* --------------------------------------------------- */
+    /* WPのレイアウト変更 */
+    body #pl-25{
+    max-width: none;
+    }
+    /* 全体のコンテナ */
+    .loan_container{
+    background-color: white;
+    height:570px;
+    width:60%;
+    margin:0 auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom:50px;
+    padding:15px;
+    }
+    /* 入力フォームのコンテナ */
+    .loan_form_container{
+    /* background-color: rgb(228, 228, 228); */
+    width:100%;
+    height:200px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    /* 出力画面のコンテナ */
+    .result_container{
+    background-color: #fff;
+    width:100%;
+    height:260px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    
+    /* フォーム共通 */
+    .loan_form{
+    /* background-color: rgba(0, 255, 0, 0.215); */
+    border-bottom:1px solid black;
+    height:60px;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    }
+    .form_name{
+    /* background-color: yellow; */
+    height:100%;
+    width:40%;
+    text-align:left;
+    display:flex;
+    align-items: flex-end;
+    font-size:20px;
+    }
+    .form_name p{
+    margin-left:5px;
+    }
+    .forms{
+    /* background-color: pink; */
+    height:100%;
+    width:60%;
+    display:flex;
+    }
+    .form{
+    /* background-color: green; */
+    height:100%;
+    width:85%;
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    font-size:30px;
+    
+    }
+    .form_unit{
+    /* background-color: aqua; */
+    height:100%;
+    width:15%;
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    }
+    
+    /* 入力フォーム */
+    input{
+    height:60%;
+    width:100%;
+    font-size:30px;
+    text-align:right;
+    border:none;
+    border-radius: 0%;
+    }
+    
+    body .w{
+    background-color: #fff;
+    }
+    
+    /* 計算ボタン */
+    .loan_btn3{
+    background-color: lightgray;
+    width:95%;
+    height:70px;
+    margin:5px auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:7px;
+    font-size:18px;
+    }
+    
+    /* その他 */
+    @media only screen and (min-width: 960px){
+    body main .forms .form p{
+    font-size: 30px !important;	
+    }
+    }
+    
+    @media only screen and (max-width: 960px){
+    body main .graphy_container{
+    background-color: white;
+    width:80%;
+    height:780px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:15px;
+    margin: 227px auto 50px auto;
+    }
+    body main .forms .form input{
+    font-size:15px;
+    padding:0 !important;
+    }
+    body main .graph canvas{
+    width: 100% !important;
+    }
+    }
+    
+    /* 出力フォーム */
+    </style>
+    </div><!-- 複利計算全ての終了タグ -->
+</section>
+</body>
+</html>

@@ -1,0 +1,291 @@
+/* リセットCSS--------------------------------- */
+
+body, h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	background: #fff;
+	text-align: center;
+	font-size: 16px;
+	line-height: 1.4;
+	min-width: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+li {
+	list-style: none;
+}
+a {
+	outline: none;
+	color: inherit;
+	text-decoration: none;
+}
+img {
+	border: 0px;
+	vertical-align: bottom;
+}
+/* material icon--------------------------------------------------- */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+/* ----------------------------------------------------- */
+body{
+    font-family: 'Lora', serif;
+    font-family: 'Noto Serif JP', serif;
+    color: rgb(82, 82, 82);
+}
+header{
+    width: 100%;
+    height: 270px;
+}
+#top{
+    width: 100%;
+    height: 420px;
+    margin-bottom: 80px;
+    position: relative;
+    background-image: url(https://images.unsplash.com/photo-1579623424991-974b8923c7e8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjYzNDZ9);
+}
+.profile{
+    width: 960px;
+    height: 300px;
+    background-color: #ffffff5c;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-top: 60px;
+    margin-left: -480px;
+    border-radius: 4px;
+}
+.profile p{
+    text-align: left;
+    font-size: 20px;
+    line-height: 2;
+}
+.profile_box{
+    width: 90%;
+    margin: 0 auto;
+}
+#firstSec{
+    width: 100%;
+    margin-bottom: 24px;
+}
+#secondSec{
+    width: 100%;
+    margin-bottom: 110px;
+}
+#thirdSec{
+    width: 100%;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+}
+footer{
+    width: 100%;
+    height: 87px;
+}
+.container{
+    width: 960px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+/* header----------------------- */
+#logo{
+    width: 275px;
+    height: 35px;
+    background-color: gray;
+    display: block;
+    position: absolute;
+    top: 105px;
+    color: #fff;
+    line-height: 2.2em;
+    box-shadow: rgba(0, 0, 0, 0.383) 0 0 3px 1px;
+}
+div.snsBox{
+    width: 70px;
+    height: 26px;
+    position: absolute;
+    top: 105px;
+    right: 0px;
+    display: flex;
+    justify-content: space-between;    
+}
+div.snsBox a{
+    color: rgb(78, 78, 78);
+    font-size: 30px;
+    text-shadow: rgba(0, 0, 0, 0.383) 0 0 3px 1px;
+}
+ul.menuBox{
+    width: 396px;
+    height: 27px;
+    position: absolute;
+    bottom: 27px;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Lora', serif;
+    font-family: 'Noto Serif JP', serif;
+}
+/* firstSec---------------------- */
+.container h2, .profile_box h2{
+    font-size: 50px;
+    font-weight: lighter;
+    letter-spacing: 0.5em;
+    line-height: 1.4em;
+    margin-bottom: 50px;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Lora', serif;
+    font-family: 'Noto Serif JP', serif;
+    font-family: 'Josefin Slab', serif;
+}
+.topFlexCard{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.skillCard{
+    width: 280px;
+    height: 399px;
+}
+.skillCard h3{
+    font-size: 25px;
+    font-weight: lighter;
+    margin-bottom: 16px;
+}
+.skillCard h4{
+    font-size: 14px;
+    font-weight: lighter;
+    margin-bottom: 40px;
+}
+.skillCard .skillImg{
+    width: 98px;
+    height: 102px;
+    margin: 0 auto 40px;
+}
+.skillCard .skillImg span{
+    font-size: 100px;
+}
+.skillCard .skillImg i{
+    font-size: 100px;
+}
+.skillCard .skillImg .fa-gamepad{
+    margin-left: -12px;
+}
+.skillCard p{
+    font-size: 12px;
+    font-weight: lighter;
+    text-align: left;
+}
+/* Work, Portfolio------------------------------ */
+.squareCard{
+    display: block;
+    width: 278px;
+    height: 258px;
+    background-color: gray;
+    margin-right: 40px;
+    margin-bottom: 60px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.383) 0 0 3px 1px;
+}
+.squareCard img{
+    width: 100%;
+}
+.squareCard:nth-child(3), .squareCard:nth-child(6){
+    margin-right: 0px;
+}
+.squareCard:nth-child(4), .squareCard:nth-child(5), .squareCard:nth-child(6){
+    margin-bottom: 0px;
+}
+.flexBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.hoverBox{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.671);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+    color: white;
+    text-align: left;
+}
+.hoverBox h3{
+    text-align: center;
+    margin: 75px 0 26px;
+}
+.hoverBox p{
+    font-size: 12px;
+    text-align: left;
+    width: 90%;
+    margin: 0 auto;
+}
+/* Contact-------------------------------- */
+.contactBox{
+    width: 350px;
+    text-align: left;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 2em;
+    margin-bottom: 90px;
+}
+/* footer---------------------------- */
+footer .container ul.menuBox{
+    top: 30px;
+    left: 0;
+}
+.fa-chevron-up{
+    font-size: 40px;
+}
+/* work.html------------------------------- */
+.leftBox{
+    width: 50%;
+    height: 400px;
+    background-color: gray;
+}
+.rightBox{
+    width: 50%;
+    height: 400px;
+    background-color: lightgray;
+}
+.workSec{
+    width: 100%;
+    margin-bottom: 110px;
+}

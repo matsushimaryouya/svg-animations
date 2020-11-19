@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryouya Matsushima Portfolio</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/wave.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Josefin+Slab:wght@100&family=Lora&family=Noto+Serif+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen and ( min-width:769px )" href="./css/pc_style.css">
+	<link rel="stylesheet" type="text/css" media="screen and ( max-width:768px )" href="./css/sp_style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="js/common.js"></script>
+    <script src="./js/wave.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85188/jquery.wavify.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" id="logo">Ryouya Matsushima Portfolio</a>
+            <div class="snsBox">
+                <a href="https://twitter.com/nanaco_1y0u" id="twBtn"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/ryoya.matsushima" id="fbBtn"><i class="fab fa-facebook-square"></i></a>
+            </div>
+            <ul class="menuBox">
+                <li><a href="#firstSec">Skill</a></li>
+                <li><a href="#secondSec">Work</a></li>
+                <li><a href="#thirdSec">Portfolio</a></li>
+                <li><a href="#fourthSec">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <section id="top">
+        <div class="container"></div>
+            <div class="waveContainer">
+                <div class="profile">
+                    <div class="profile_box">
+                        <h2>Profile</h2>
+                        <p>Name：松島 亮也</p>
+                        <p>Skill：HTML・CSS・JavaScript・Python・C#・WordPress・Unity・Blender</p>
+                        <p>Work：Web制作・映像制作・動画編集・3DCGモデリング</p>
+                        <p>Hobby：旅行・ゲーム制作・アニメーション制作</p>
+                    </div>
+                </div>
+                <div class="bc_img">
+                        <div class="title_box">
+                            <!-- <h1>WAVE ANIMATION<br> -->
+                            <a href="/404"></a></h1>
+                        </div>
+                        <div class="wave_box">
+                            <svg class="wave wave_up" version="1.1" xmlns="http://www.w3.org/2000/svg"><path id="wave" d=""/></svg>
+                        </div>
+                        <div class="wave_box2">
+                            <svg class="wave wave_up"version="1.1" xmlns="http://www.w3.org/2000/svg"><path id="wave1" d=""/></svg>
+                        </div>
+                </div>
+                <svg width="100%" height="1280" class="fade_in">
+                    <defs>
+                    <linearGradient id="gradient" gradientTransform="rotate(75)">
+                        <stop offset="15%" stop-color="#1a237e" />
+                        <stop offset="80%" stop-color="#00e5ff" />
+                    </linearGradient>
+                    <mask id="mask">
+                        <rect width="100%" height="100%" fill="#fff" />
+                        <text x="10%" y="150px" font-size="100px" font-weight="600">Portfolio</text>
+                    </mask>
+                    </defs>
+                </svg>
+            </div>
+    </section>
+    <section id="secondSec">
+        <div class="container">
+            <h2>Work</h2>
+            <div class="flexBox">
+                <a href="http://jimin-kagawa.main.jp/"  class="squareCard">
+                    <img src="./img/kagawaCovid.png" alt="">
+                    <div class="hoverBox">
+                        <h3>自民党香川県コロナ対策サイト</h3>
+                        <p>自民党香川県支部からの依頼で作成したサイトです。
+                           フルスクラッチでWordpressテーマを作成しています。
+                           コーディング部分を一人で担当しました。
+                        </p>
+                    </div>
+                </a>
+                <a href="./gunnyouchi.html"  class="squareCard">
+                    <img src="./img/gunnyouchi.png" alt="">
+                    <div class="hoverBox">
+                        <h3>軍用地ブログ用ツール作成</h3>
+                        <p>沖縄県の軍用地ブログ用ツールを作成。
+                           軍用地用の不動産投資ツールは一般の不動産投資と計算方法が
+                           異なることからツールの作成依頼です。
+                           JavaScriptを使用しグラフの描写、各種計算を行いました。
+                           担当箇所はツールの作成全てです。
+                        </p>
+                    </div>
+                </a>
+                <a href="https://twitter.com/MaiKamigaya?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"  class="squareCard">
+                    <img src="./img/kamigayaMai.png" alt="">
+                    <div class="hoverBox">
+                        <h3>証券会社VTuberプロジェクト</h3>
+                        <p>香川証券のVTuber作成プロジェクトに参加しました。
+                           担当はモデル修正で、外部のモデラーから納品後に修正依頼が
+                           あったため、顔のモデル修正を行いました。
+                           また、VTuberのシステム部分も担当しました。
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="thirdSec">
+        <div class="container">
+            <div class="container">
+                <h2>Portfolio</h2>
+                <div class="flexBox">
+                    <a href="http://bluecat.girly.jp/tweet-matchima/top.html"  class="squareCard">
+                        <img src="./img/tweetIcon.png" alt="">
+                        <div class="hoverBox">
+                            <h3>Twitterレイアウト変更</h3>
+                            <p>Twitter TimeLineのレイアウト変更です。
+                               CSSとJavaScriptを使用してアニメーションをさせています。
+                               キャラクターは私のオリジナルキャラクターです。
+                            </p>
+                        </div>
+                    </a>
+                    <a href="http://bluecat.girly.jp/cocktailPJ/index.html"  class="squareCard">
+                        <img src="img/coocktail.png" alt="">
+                        <div class="hoverBox">
+                            <h3>カクテルアニメーション</h3>
+                            <p>CSSとJavaScriptを使用したアニメーションです。
+                               SVGアニメーションを使用して水を表現しています。
+                            </p>
+                        </div>
+                    </a>
+                    <a href="https://matchima-okimonproject.herokuapp.com/"  class="squareCard">
+                        <img src="./img/okimon.png" alt="">
+                        <div class="hoverBox">
+                            <h3>沖縄生き物図鑑</h3>
+                            <p>沖縄の生き物図鑑です。
+                               使用言語はHTML/CSS/JavaScript/Pythonです。
+                               フレームワークはFlaskを使用し、アップロードはHerokuです。
+                            </p>
+                        </div>
+                    </a>
+                    <a href="http://bluecat.girly.jp/newNeetProject2/"  class="squareCard">
+                        <img src="./img/neet.png" alt="">
+                        <div class="hoverBox">
+                            <h3>失業保険シュミレーター</h3>
+                            <p>失業したあとどのくらい仕事をしないでいられるか計算が出来るシュミレーターです。
+                               失業保険の計算はJavaScriptで行っております。
+                            </p>
+                        </div>
+                    </a>
+                    <a href="https://twitter.com/search?q=%40nanaco_1y0u%20%23blender&src=typed_query"  class="squareCard">
+                        <img src="./img/blender.png" alt="">
+                        <div class="hoverBox">
+                            <h3>3DCG</h3>
+                            <p>主にBlenderという3DCGソフトを使用しています。
+                               最近はゲームエンジンのUnity, UE4も使用しています。
+                            </p>
+                        </div>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.ousamaneko.cattodo&hl=ja"  class="squareCard">
+                        <img src="./img/catodo.png" alt="">
+                        <div class="hoverBox">
+                            <h3>音声読上げTODOアプリ</h3>
+                            <p>使用言語はReactです。
+                               TODOをリマインダーに入れて、TOPの猫を押すと読み上げをしてくれます。
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="firstSec">
+        <div class="container">
+            <h2>Skill</h2>
+            <div class="topFlexCard">
+                <div class="skillCard">
+                    <h3>Web制作</h3>
+                    <h4>web product</h4>
+                    <p class="skillImg"><span class="material-icons">important_devices</span></p>
+                    <p>HTML/CSS, JavaScript, jQuery, Python, Flask, Wordpress
+                    <br>
+                    フルスクラッチでWordpressの企業案件をしています。</p>
+                </div>
+                <div class="skillCard">
+                    <h3>アプリ開発</h3>
+                    <h4>game product</h4>
+                    <p class="skillImg"><i class="fas fa-gamepad"></i></p>
+                    <p>C#, React, Unity, UE4
+                    <br><br>
+                    ゲームエンジンを使用したアプリ開発をしています。</p>
+                </div>
+                <div class="skillCard">
+                    <h3>3DCG</h3>
+                    <h4>three dimension computer graphics</h4>
+                    <p class="skillImg"><i class="fas fa-cube"></i></p>
+                    <p>Blender, Photoshop, illustrator,  Premire Pro
+                    <br><br>
+                    Blenderを使用して映像制作や画像制作をおこなっております。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fourthSec">
+        <div class="container">
+            <div class="container">
+                <h2>Contact</h2>
+                <div class="contactBox">
+                    <p>Mail：blue.conjrer@gmail.com</p>
+                    <p>   <a href="https://twitter.com/nanaco_1y0u" id="twBtn"><i class="fab fa-twitter"></i>     Twitterはこちら</a></p>
+                    <p>   <a href="https://www.facebook.com/ryoya.matsushima" id="fbBtn"><i class="fab fa-facebook-square"></i>     Facebookはこちら</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <a href="#">
+        <p id="topScroll"><i class="fas fa-chevron-up"></i></p>
+    </a>
+    <footer>
+        <div class="container">
+            <ul class="menuBox">
+                <li><a href="#firstSec">Skill</a></li>
+                <li><a href="#secondSec">Work</a></li>
+                <li><a href="#thirdSec">Portfolio</a></li>
+                <li><a href="#fourthSec">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
