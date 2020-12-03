@@ -95,18 +95,9 @@ header{
     width: 90%;
     margin: 0 auto;
 }
-#firstSec{
-    width: 100%;
-    margin-bottom: 24px;
-}
-#secondSec{
+.section{
     width: 100%;
     margin-bottom: 110px;
-}
-#thirdSec{
-    width: 100%;
-    margin-bottom: 50px;
-    padding-bottom: 20px;
 }
 footer{
     width: 100%;
@@ -123,13 +114,13 @@ footer{
 #logo{
     width: 275px;
     height: 35px;
-    background-color: gray;
     display: block;
     position: absolute;
     top: 43px;
     color: #fff;
     line-height: 2.2em;
     box-shadow: rgba(0, 0, 0, 0.383) 0 0 3px 1px;
+    color: gray;
 }
 div.snsBox{
     width: 70px;

@@ -97,18 +97,9 @@ header{
     width: 90%;
     margin: 0 auto;
 }
-#firstSec{
-    width: 100%;
-    margin-bottom: 24px;
-}
-#secondSec{
+.section{
     width: 100%;
     margin-bottom: 110px;
-}
-#thirdSec{
-    width: 100%;
-    margin-bottom: 50px;
-    padding-bottom: 20px;
 }
 footer{
     width: 100%;
@@ -125,13 +116,13 @@ footer{
 #logo{
     width: 275px;
     height: 35px;
-    background-color: gray;
     display: block;
     position: absolute;
     top: 105px;
     color: #fff;
     line-height: 2.2em;
     box-shadow: rgba(0, 0, 0, 0.383) 0 0 3px 1px;
+    color: gray;
 }
 div.snsBox{
     width: 70px;
@@ -170,7 +161,17 @@ ul.menuBox{
     font-family: 'Lora', serif;
     font-family: 'Noto Serif JP', serif;
     font-family: 'Josefin Slab', serif;
+    text-align: left;
 }
+.head2box{
+    height: 42px;
+    width: 10px;
+    background-color: gray;
+    display: inline-block;
+    margin-right: 27px;
+    margin-bottom: -4px;
+}
+
 .topFlexCard{
     width: 100%;
     display: flex;
@@ -289,3 +290,14 @@ footer .container ul.menuBox{
     width: 100%;
     margin-bottom: 110px;
 }
+/* lottieAnimation------------------------------- */
+/* #lottie{
+    background-color:#fff;
+    width: 35%;
+    height: 35%;
+    display: block;
+    overflow: hidden;
+    transform: translate3d(0,0,0);
+    margin: 0 auto;
+    opacity: 1;
+} */
