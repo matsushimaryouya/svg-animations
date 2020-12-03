@@ -177,50 +177,18 @@ ul.menuBox{
     display: flex;
     justify-content: space-between;
 }
-.skillCard{
-    width: 280px;
-    height: 399px;
-}
-.skillCard h3{
-    font-size: 25px;
-    font-weight: lighter;
-    margin-bottom: 16px;
-}
-.skillCard h4{
-    font-size: 14px;
-    font-weight: lighter;
-    margin-bottom: 40px;
-}
-.skillCard .skillImg{
-    width: 98px;
-    height: 102px;
-    margin: 0 auto 40px;
-}
-.skillCard .skillImg span{
-    font-size: 100px;
-}
-.skillCard .skillImg i{
-    font-size: 100px;
-}
-.skillCard .skillImg .fa-gamepad{
-    margin-left: -12px;
-}
-.skillCard p{
-    font-size: 12px;
-    font-weight: lighter;
-    text-align: left;
-}
 /* Work, Portfolio------------------------------ */
 .squareCard{
     display: block;
-    width: 278px;
-    height: 258px;
+    width: 300px;
+    /* height: 258px; */
     background-color: gray;
-    margin-right: 40px;
-    margin-bottom: 60px;
+    /* margin-right: 40px; */
+    margin-bottom: 30px;
     overflow: hidden;
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.383) 0 0 3px 1px;
+    border-radius: 3px;
 }
 .squareCard img{
     width: 100%;
@@ -250,7 +218,7 @@ ul.menuBox{
 }
 .hoverBox h3{
     text-align: center;
-    margin: 75px 0 26px;
+    margin: 70px 0 26px;
 }
 .hoverBox p{
     font-size: 12px;

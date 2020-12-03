@@ -168,40 +168,6 @@ ul.menuBox{
 .topFlexCard{
     width: 100%;
 }
-.skillCard{
-    width: 280px;
-    height: 399px;
-    margin: 0 auto;
-}
-.skillCard h3{
-    font-size: 25px;
-    font-weight: lighter;
-    margin-bottom: 16px;
-}
-.skillCard h4{
-    font-size: 14px;
-    font-weight: lighter;
-    margin-bottom: 40px;
-}
-.skillCard .skillImg{
-    width: 98px;
-    height: 102px;
-    margin: 0 auto 40px;
-}
-.skillCard .skillImg span{
-    font-size: 100px;
-}
-.skillCard .skillImg i{
-    font-size: 100px;
-}
-.skillCard .skillImg .fa-gamepad{
-    margin-left: -12px;
-}
-.skillCard p{
-    font-size: 12px;
-    font-weight: lighter;
-    text-align: left;
-}
 /* Work, Portfolio------------------------------ */
 .squareCard{
     display: block;

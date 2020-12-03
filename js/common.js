@@ -15,8 +15,7 @@ $(function(){
         $(this).children(".hoverBox").fadeIn();
     },function(){
         $(this).children(".hoverBox").fadeOut();
-    });
-    
+    });    
 });
 
 // lottie
